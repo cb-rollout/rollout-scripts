@@ -1,4 +1,5 @@
 #! /bin/bash
+#see https://rollout-rest-api.cloudbees.com/reference#authentication 
 
 #ENV_PROD_KEY=5e95ad1fa6de03e3b693732d
 APPLICATION_ID=5e95ad1fa6de037e1793732b
@@ -9,7 +10,7 @@ curl  "https://x-api.rollout.io/public-api/applications/${APPLICATION_ID}/enviro
   -H 'accept: application/json' \
   -H "Authorization: Bearer ${USER_TOKEN}" |jq 
 
-#list all experiemnts
+#list all experiemnts https://rollout-rest-api.cloudbees.com/reference#experiments
 curl "https://x-api.rollout.io/public-api/applications/${APPLICATION_ID}/Production/experiments" \
   -H 'accept: application/json' \
   -H "Authorization: Bearer ${USER_TOKEN}" |jq
