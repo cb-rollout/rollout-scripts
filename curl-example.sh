@@ -14,3 +14,13 @@ curl  "https://x-api.rollout.io/public-api/applications/${APPLICATION_ID}/enviro
 curl "https://x-api.rollout.io/public-api/applications/${APPLICATION_ID}/Production/experiments" \
   -H 'accept: application/json' \
   -H "Authorization: Bearer ${USER_TOKEN}" |jq
+ 
+#list all disabled experiemnts
+curl "https://x-api.rollout.io/public-api/applications/${APPLICATION_ID}/Production/experiments" \
+  -H 'accept: application/json' \
+  -H "Authorization: Bearer ${USER_TOKEN}" | jq '.[] | select(.value==false)'
+
+#list all enabled  experiemnts
+curl "https://x-api.rollout.io/public-api/applications/${APPLICATION_ID}/Production/experiments" \
+  -H 'accept: application/json' \
+  -H "Authorization: Bearer ${USER_TOKEN}" | jq '.[] | select(.value==true)'
