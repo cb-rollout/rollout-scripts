@@ -30,7 +30,7 @@ curl "https://x-api.rollout.io/public-api/applications/${APPLICATION_ID}/Product
 #list all experiemnts with value false
 curl "https://x-api.rollout.io/public-api/applications/${APPLICATION_ID}/Production/experiments" \
   -H 'accept: application/json' \
-  -H "Authorization: Bearer ${USER_TOKEN}" | jq '.[] | select(.value==false)'
+  -H "Authorization: Bearer ${USER_TOKEN}" |jq '.[] | select(.value==false)'
 
 #list all experiemnts with value true
 curl "https://x-api.rollout.io/public-api/applications/${APPLICATION_ID}/Production/experiments" \
